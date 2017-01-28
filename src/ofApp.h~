@@ -1,0 +1,99 @@
+#pragma once
+
+#include "ofMain.h"
+#include "Particle.h"
+#include "ParticlePack.h"
+#include "Bubble2D.h"
+#include "Gradient.h"
+
+
+
+class ofApp : public ofBaseApp
+{
+	public:
+		void setup();
+		void update();
+		void draw();
+
+		float getDistance(ofVec2f p1, ofVec2f p2);
+		
+		void keyPressed(int key);
+		void keyReleased(int key);
+		void mouseMoved(int x, int y);
+		void mouseDragged(int x, int y, int button);
+		void mousePressed(int x, int y, int button);
+		void mouseReleased(int x, int y, int button);
+		void mouseEntered(int x, int y);
+		void mouseExited(int x, int y);
+		void windowResized(int w, int h);
+		void dragEvent(ofDragInfo dragInfo);
+		void gotMessage(ofMessage msg);
+    
+	    
+    
+	private:
+        Bubble2D* bubble;
+
+		bool isMousePressed;
+		bool save; // Will be used as a trigger sign to save the frames
+
+		ofVec2f ip1;
+
+		bool isKeyPressed;
+    
+        vector <ofColor> dayC;
+        vector <ofColor> nightC;
+        vector <ofColor> currentC;
+
+    
+        vector <int> dayP;
+        vector <int> nightP;
+        vector <int> currentP;
+
+    
+        float getDark;
+    
+    
+
+		// Perlin Noise Flow Variables -----------------------------------
+		int gridCell;  // width and height of a grid cell
+		int nColumns;  // grid's number of columns
+		int nLines;  // grid's number of columns
+		float pInc;    // perlin noise increment
+		float zTime;   // Third dimension perlin noise time
+        float fTime;
+
+		// Array with the force's direction of every cell of the screen
+		vector<ofVec2f>  forceDirection;
+		//-----------------------------------------------------------------
+
+        // array of particles
+		//vector <Particle> p;
+        
+        ParticlePack* p;
+    
+    
+		ofImage cursor;
+		ofImage sunBackGround;
+
+    
+        Gradient* bk;
+        //ofImage bk;
+    
+        ofFile textFileX;
+        ofFile textFileY;
+        
+    
+        int fNFrames; // number of frames the force will actuate
+        ofVec2f f;
+    
+        int frameCount;
+        int firstFrame;
+    
+        float factor;
+    
+        vector <int> beatFrame;
+        int beatIndex;
+    
+        ofImage grain;
+};

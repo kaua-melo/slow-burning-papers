@@ -1,0 +1,33 @@
+
+#include "Bubble2D.h"
+
+
+
+Bubble1D::Bubble2D(int x, int y, int _np, float _str, float _f, float w, ofColor _c)
+{
+	// center of the bubble
+	center.set(x,y);
+
+	
+	
+}
+
+
+void Bubble1D::update()
+{
+	
+}
+
+
+
+void Bubble1D::drawP()
+{
+
+}
+
+
+void Bubble1D::drawL()
+{
+	
+}
+

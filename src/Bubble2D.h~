@@ -1,0 +1,61 @@
+
+#ifndef _BUBBLE2D // if this class hasn't been defined, the program can define it
+#define _BUBBLE2D // by using this if statement you prevent the class to be called more than once which would confuse the compiler
+
+#include "ofMain.h" // we need to include this to have a reference to the openFrameworks framework
+#include "Particle.h"
+
+
+class Bubble2D
+{
+	public:
+		// center of the bubble
+		ofVec2f center;
+
+		// number of particles
+		int np;
+
+		// circunference of the bubble
+		int circunference;
+
+		// radius of the bubble
+		float r;
+
+		// strength between the particles
+		float str;
+
+		// strength of the connection between 
+		//  the particles and the central particle
+		float cStr;
+
+
+		// friction
+		float friction;
+
+		// weigth of the line when drawing the chain
+		int weight;
+
+		// surface's particles
+		vector <shared_ptr<Particle>> p;
+
+		// fixed points of the particles
+		vector <ofVec2f> fxP;
+		
+		// center particle
+		Particle* cParticle;
+
+		// color
+		ofColor c;
+
+
+		Bubble2D(int x, int y, int _np, int _r, float _str, float f, float w, ofColor _c); 
+		void update();
+		void drawP(); // draw particles
+		void drawL(); // draw line
+		void drawS(); // draw shape
+		void applyForce(ofVec2f); // apply force to the bubble (move it as a rigid body)
+	private:
+
+	
+};
+#endif
